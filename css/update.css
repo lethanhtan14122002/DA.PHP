@@ -1,0 +1,33 @@
+.tan{
+    margin-bottom: 10px;
+    margin-left: 20px;
+    padding:5px 10px;
+    background:aqua;
+}
+.tan:hover{
+    background:red;
+}
+.quaylai{
+    margin-top: 20px;
+    padding: 10px 40px;
+    background: #0062cc;
+    color: white;
+    font-size: 20px;
+    
+}
+.quaylai:hover{
+    background:aqua;
+}
+.thanhtoan{
+    margin-left: 800px;
+    display:flex;
+    padding:10px 20px;
+    font-size:20px;
+    color:white;
+    background: #0062cc;
+    
+    
+}
+.thanhtoan:hover{
+    background:aqua;
+}
