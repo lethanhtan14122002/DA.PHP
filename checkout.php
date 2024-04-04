@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
-
+$user_email = $_SESSION['user_email'];
 // Truy vấn để lấy thông tin giỏ hàng của người dùng
 $sql = "SELECT cart_items.item_id, menu_items.name, menu_items.price, menu_items.image, cart_items.quantity
         FROM cart_items
@@ -91,9 +91,12 @@ $totalAmount = 0;
                 </tfoot>
             </table>
             <form method="post" action="process_order.php">
+                <label for="email">email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="<?php echo $user_email; ?>" readonly>
+                <br>
                 <div class="form-group">
                     <label for="phone">Số điện thoại:</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                    <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]+" title="Số điện thoại chỉ được chứa các ký tự số và không có dấu cách" required>
                 </div>
                 <div class="form-group">
                     <label for="address">Địa chỉ:</label>
@@ -103,7 +106,7 @@ $totalAmount = 0;
                     <label for="note">Nội dung:</label>
                     <textarea class="form-control" id="note" name="note" rows="3"></textarea>
                 </div>
-                <input type="hidden" name="email" value="<?php echo $_SESSION['user_email']; ?>">
+
                 <!-- Thêm nút Submit để gửi đơn hàng -->
                 <button type="submit" name="submit_order" class="btn btn-primary">Đặt hàng</button>
             </form>

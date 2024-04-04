@@ -1,0 +1,31 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ 
+ body {
+    font-family: Arial, sans-serif;
+ }
+ 
+ .container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 0 20px;
+ }
+ 
+ .content {
+    margin-top: 50px;
+ }
+ 
+ .actions a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+ }
+ 
+ .actions a:hover {
+    color: #f1c40f; /* Màu vàng khi hover */
+ }
+ 

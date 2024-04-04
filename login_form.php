@@ -11,25 +11,23 @@ if (isset($_POST['submit'])) {
    $cpass = md5($_POST['cpassword']);
    $user_type = $_POST['user_type'];
 
-   $select = "SELECT id, user_type FROM user_form WHERE email = '$email' AND password = '$pass'";
+   $select = "SELECT id, email, user_type FROM user_form WHERE email = '$email' AND password = '$pass'";
 
    $result = mysqli_query($conn, $select);
 
    if (mysqli_num_rows($result) > 0) {
       $row = mysqli_fetch_array($result);
-      
+      $_SESSION['user_email'] = $row['email']; // Đặt giá trị email vào session
 
       if ($row['user_type'] == 'admin') {
          $_SESSION['admin_name'] = $row['name'];
-         // header('location: admin_show.php');
          header('location: admin_show.php');
          exit();
       } elseif ($row['user_type'] == 'user') {
-         // Giữ nguyên thông tin admin, chỉ chuyển user sang $_SESSION['user_id']
-         $_SESSION['user_id'] = $row['id']; // Chỉ chuyển user sang $_SESSION['user_id']
+         $_SESSION['user_id'] = $row['id']; 
          $_SESSION['user_name'] = $row['name'];
-         header('location: thongtinkh.php');
-         // header('location: user_page.php');
+         header('location: user_page.php');
+         // header('location: thongtinkh.php');
          exit();
       }
    } else {
