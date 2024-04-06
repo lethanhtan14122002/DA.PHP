@@ -5,29 +5,25 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = md5($_POST['password']);
-   $cpass = md5($_POST['cpassword']);
-   $user_type = $_POST['user_type'];
 
-   $select = "SELECT id, email, user_type FROM user_form WHERE email = '$email' AND password = '$pass'";
+   $select = "SELECT id, name, email, user_type FROM user_form WHERE email = '$email' AND password = '$pass'";
 
    $result = mysqli_query($conn, $select);
 
    if (mysqli_num_rows($result) > 0) {
       $row = mysqli_fetch_array($result);
       $_SESSION['user_email'] = $row['email']; // Đặt giá trị email vào session
-
+      $_SESSION['user_id'] = $row['id']; // Đặt giá trị user_id vào session
+      $_SESSION['user_name'] = $row['name']; // Đặt giá trị name vào session
       if ($row['user_type'] == 'admin') {
          $_SESSION['admin_name'] = $row['name'];
          header('location: admin_show.php');
          exit();
       } elseif ($row['user_type'] == 'user') {
-         $_SESSION['user_id'] = $row['id']; 
-         $_SESSION['user_name'] = $row['name'];
          header('location: user_page.php');
-         // header('location: thongtinkh.php');
+         // header('location: binhluan.php');
          exit();
       }
    } else {

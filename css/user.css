@@ -5,7 +5,7 @@
 
 .total-favorites {
     position: fixed;
-    top: 62px;
+    top: 80px;
     right: 90px;
     background-color: #007bff;
     color: #fff;
@@ -78,7 +78,7 @@
 }
 .tong{
     position: fixed;
-    top: 59px;
+    top: 80px;
     right: 60px;
     background-color: #007bff;
     color: #fff;
@@ -87,4 +87,108 @@
 }
 .tan{
     height:250px;
+}
+body {
+    position: relative; /* Đặt vị trí là relative để có thể sử dụng z-index */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://wallpapertag.com/wallpaper/full/8/e/e/143322-vertical-white-glitter-background-1920x1080-for-4k.jpg');
+    background-size: cover; /* Sử dụng cover để đảm bảo ảnh nền đầy đủ kích thước */
+    z-index: 0; /* Đặt z-index cho body */
+    animation: snow 50s linear infinite;
+}
+#banner {
+    width: 100%;
+    height: 463px;
+    margin-top:40px;
+    display: flex;
+    padding:0px 133px;
+    position:relative;
+    z-index: 1;
+}
+
+#banner .box-left ,#banner .box-right {
+    z-index: 1;
+    width: 50%;
+}
+
+#banner  .box-left h2 {
+    font-size:48px;
+    margin-top:75px;
+    color:#fff;
+}
+
+#banner .box-left p {
+    color:#D0D0D0;
+}
+
+#banner .box-left button {
+    width: 191px;
+    height: 40px;
+    margin-top:41px;
+    background:#1d1a1a;
+    border:none;
+    outline:none;
+    color:#fff;
+    font-weight: bold;
+    border-radius: 20px;
+    transition:0.4s;
+}
+
+#banner .box-left button:hover {
+    background:orange;
+}
+
+#banner .box-right {
+    padding-left:200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#banner .box-right img {
+    z-index: 1;
+    margin:0px 10px;
+    animation :animation 3s infinite linear; 
+}
+
+
+#banner .box-right img:nth-child(1)
+{
+    animation-delay: 0.5s;
+}
+#banner .box-right img:nth-child(2)
+{
+    
+    animation-delay: 1s;
+}
+
+@keyframes animation {
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+    
+}
+
+.to-bottom {
+    z-index: 0;
+    position:absolute;
+    bottom:-40px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.to-bottom img{
+    margin-top: 50px;
+    padding: 5px 5px;
+    width: 1350px;;
+    height: 550px;
 }

@@ -1,31 +1,50 @@
-/* Reset default styles */
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
- }
- 
- body {
+    background-color: #222; /* Màu nền */
+    color: #fff; /* Màu chữ */
     font-family: Arial, sans-serif;
- }
- 
- .container {
-    max-width: 960px;
-    margin: 20px auto;
-    padding: 0 20px;
- }
- 
- .content {
-    margin-top: 50px;
- }
- 
- .actions a {
-    margin-right: 10px;
+    overflow-x: hidden; /* Ngăn chặn hiển thị scroll ngang */
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2); /* Màu nền của content */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Đổ bóng */
+}
+
+.content {
+    text-align: center;
+}
+
+.actions a {
+    color: #f1c40f; /* Màu chữ của các nút */
     text-decoration: none;
-    color: #333;
- }
- 
- .actions a:hover {
-    color: #f1c40f; /* Màu vàng khi hover */
- }
- 
+    margin-right: 10px;
+}
+
+.actions a:hover {
+    text-decoration: underline;
+}
+
+.snowfall {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.netanimations.net/animated-snowfalling-on-christmas-tree.gif'); /* Animation của tuyết rơi */
+    background-size: 100%; /* Hiển thị ảnh nền 100% kích thước */
+    z-index: -1;
+    pointer-events: none; /* Không ảnh hưởng tới sự kiện click */
+    animation: snow 50s linear infinite; /* Áp dụng animation tuyết rơi */
+}
+
+@keyframes snow {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 1000px; }
+}

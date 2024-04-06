@@ -68,13 +68,13 @@ $result = $conn->query($sql);
                     } else {
                         echo "<tr><td colspan='6'>Giỏ hàng của bạn đang trống.</td></tr>";
                     }
-                    if (!($result->num_rows == 0)) {
-                        echo '<form method="post" action="checkout.php">';
-                        echo '<button type="submit" name="checkout" class="thanhtoan">Thanh toán</button>';
-                        echo '</form>';
-                    } else {
-                        echo '<p class="text-danger">Giỏ hàng của bạn đang trống, không thể thanh toán!</p>';
-                    }
+                    // if (!($result->num_rows == 0)) {
+                    //     echo '<form method="post" action="checkout.php">';
+                    //     echo '<button type="submit" name="checkout" class="thanhtoan">Thanh toán</button>';
+                    //     echo '</form>';
+                    // } else {
+                    //     echo '<p class="text-danger">Giỏ hàng của bạn đang trống, không thể thanh toán!</p>';
+                    // }
                     ?>
                 </tbody>
             </table>
@@ -82,8 +82,19 @@ $result = $conn->query($sql);
             <form method="post" action="user_page.php">
                 <button type="submit" name="back_to_user" class="quaylai">Quay lại trang</button>
             </form>
+            <?php
+            if (!($result->num_rows == 0)) {
+                echo '<form method="post" action="checkout.php">';
+                echo '<button type="submit" name="checkout" class="thanhtoan">Thanh toán</button>';
+                echo '</form>';
+            } else {
+                echo '<p class="text-danger">Giỏ hàng của bạn đang trống, không thể thanh toán!</p>';
+            }
+            ?>
             <!-- Nút Thanh toán -->
-            
+            <!-- <form method="post" action="checkout.php">;
+            <button type="submit" name="checkout" class="thanhtoan">Thanh toán</button>;
+            </form>; -->
         </div>
     </div>
 </body>

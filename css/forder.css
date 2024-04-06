@@ -1,0 +1,56 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Footer container */
+.footer-part {
+    background-color: #333; /* Màu nền footer */
+    color: #fff; /* Màu chữ */
+    padding: 50px 0; /* Khoảng cách padding top và bottom */
+}
+
+/* Footer widget */
+.footer-widget {
+    margin-bottom: 30px; /* Khoảng cách giữa các widget */
+}
+
+/* Footer logo */
+.footer-logo img {
+    max-width: 150px; /* Kích thước tối đa của logo */
+}
+
+/* Footer description */
+.footer-desc {
+    margin-top: 15px; /* Khoảng cách từ phần mô tả đến các biểu tượng mạng xã hội */
+}
+
+/* Footer social icons */
+.footer-social li {
+    display: inline-block; /* Hiển thị các biểu tượng mạng xã hội trên cùng một hàng */
+    margin-right: 10px; /* Khoảng cách giữa các biểu tượng mạng xã hội */
+}
+
+/* Footer contact details */
+.footer-contact p {
+    margin-bottom: 10px; /* Khoảng cách giữa các mục trong thông tin liên hệ */
+}
+
+/* Footer links */
+.footer-links ul {
+    list-style-type: none; /* Loại bỏ dấu chấm trước mỗi mục */
+}
+
+.footer-links ul li {
+    margin-bottom: 5px; /* Khoảng cách giữa các mục trong footer links */
+}
+
+/* Footer links hover effect */
+.footer-links ul li a:hover {
+    color: #007bff; /* Màu chữ khi di chuột qua */
+}
+.footer-social li a :hover{
+    background-color: aqua;
+}

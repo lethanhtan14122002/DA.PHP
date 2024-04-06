@@ -15,6 +15,7 @@
     <did class="head">
         <nav class="navbar">
             <ul class="nav-list">
+                <li><a href="user_page.php" class="logo"><img src="images/Group 7.png" alt="Logo"></a></li>
                 <li><a href="user_page.php">Trang Chủ</a></li>
                 <li><a href="monnuong.php">Món Nướng</a></li>
                 <li><a href="monchien.php">Món Chiên</a></li>
@@ -42,6 +43,30 @@
             document.getElementById("searchForm").submit();
         }
     </script>
+    <br>
+    <div id="banner">
+        <div class="box-left">
+            <h2>
+                <span>THỨC ĂN</span>
+                <br>
+                <span>THƯỢNG HẠNG</span>
+            </h2>
+            <p>Chuyên cung cấp các món ăn đảm bảo dinh dưỡng
+                hợp vệ sinh đến người dùng,phục vụ người dùng 1 cái
+                hoàn hảo nhất</p>
+            <button>Mua ngay</button>
+        </div>
+        <div class="box-right">
+            <img src="images/img_1.png" alt="sh">
+            <img src="images/img_2.png" alt="sh">
+            <img src="images/img_3.png" alt="sh">
+        </div>
+        <div class="to-bottom">
+            <a href="">
+                <img src="images/banner.png" alt="sh">
+            </a>
+        </div>
+    </div>
     <div class="container mt-5">
         <h1 class="mb-4">Danh Sách Món Ăn</h1>
         <div class="row">
@@ -67,7 +92,7 @@
                     echo '<img src="images/' . $row['image'] . '" alt="' . $row['name'] . '" class="tan" style="width: 100% , height: 30%;">';
                     echo '<div class="card-body">';
                     echo '<h5 class="card-title">' . $row['name'] . '</h5>';
-                    echo '<p class="card-text">' . (strlen($row['description']) > 20 ? substr($row['description'], 0, 20) . '...' : $row['description']) . '</p>'; 
+                    echo '<p class="card-text">' . (strlen($row['description']) > 20 ? substr($row['description'], 0, 20) . '...' : $row['description']) . '</p>';
                     echo '<a href="product_detail.php?id=' . $row['id'] . '">Chi tiết</a>';
                     echo '<p class="card-text">Giá: ' . number_format($row['price'], 0, ',', '.') . ' VNĐ</p>';
                     // Form để thêm vào danh sách yêu thích
@@ -124,7 +149,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <br>
 </body>
 
 </html>
@@ -158,6 +183,29 @@ $result = $conn->query($sql);
 </head>
 
 <body>
+    <div id="banner">
+        <div class="box-left">
+            <h2>
+                <span>THỨC ĂN</span>
+                <br>
+                <span>THƯỢNG HẠNG</span>
+            </h2>
+            <p>Chuyên cung cấp các món ăn đảm bảo dinh dưỡng
+                hợp vệ sinh đến người dùng,phục vụ người dùng 1 cái
+                hoàn hảo nhất</p>
+            <button>Mua ngay</button>
+        </div>
+        <div class="box-right">
+            <img src="images/img_1.png" alt="sh">
+            <img src="images/img_2.png" alt="sh">
+            <img src="images/img_3.png" alt="sh">
+        </div>
+        <div class="to-bottom">
+            <a href="">
+                <img src="anh/s-cach-lam-4-loai-sot-cham-mon-nuong-ngon-chuan-vi-nha-hang-ban-co-the-tu-tay-lam-tai-nha-1.jpg" alt="sh">
+            </a>
+        </div>
+    </div>
     <div class="container mt-5">
         <h1 class="mb-4">Danh Sách Món Nướng</h1>
         <div class="row">
@@ -169,7 +217,7 @@ $result = $conn->query($sql);
                     echo '<img src="images/' . $row['image'] . '" alt="' . $row['name'] . '" class="tan" style="width: 100% , height: 30%;">';
                     echo '<div class="card-body">';
                     echo '<h5 class="card-title">' . $row['name'] . '</h5>';
-                    echo '<p class="card-text">' . (strlen($row['description']) > 20 ? substr($row['description'], 0, 20) . '...' : $row['description']) . '</p>'; 
+                    echo '<p class="card-text">' . (strlen($row['description']) > 20 ? substr($row['description'], 0, 20) . '...' : $row['description']) . '</p>';
                     echo '<a href="product_detail.php?id=' . $row['id'] . '">Chi tiết</a>';
                     echo '<p class="card-text">Giá: ' . number_format($row['price'], 0, ',', '.') . ' VNĐ</p>';
                     // Form để thêm vào danh sách yêu thích
@@ -198,6 +246,7 @@ $result = $conn->query($sql);
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <br>
 </body>
 
 </html>
@@ -231,6 +280,29 @@ $result = $conn->query($sql);
 </head>
 
 <body>
+    <div id="banner">
+        <div class="box-left">
+            <h2>
+                <span>THỨC ĂN</span>
+                <br>
+                <span>THƯỢNG HẠNG</span>
+            </h2>
+            <p>Chuyên cung cấp các món ăn đảm bảo dinh dưỡng
+                hợp vệ sinh đến người dùng,phục vụ người dùng 1 cái
+                hoàn hảo nhất</p>
+            <button>Mua ngay</button>
+        </div>
+        <div class="box-right">
+            <img src="images/img_1.png" alt="sh">
+            <img src="images/img_2.png" alt="sh">
+            <img src="images/img_3.png" alt="sh">
+        </div>
+        <div class="to-bottom">
+            <a href="">
+                <img src="anh/images.jpg" alt="sh">
+            </a>
+        </div>
+    </div>
     <div class="container mt-5">
         <h1 class="mb-4">Danh Sách Món Chiên</h1>
         <div class="row">
@@ -242,7 +314,7 @@ $result = $conn->query($sql);
                     echo '<img src="images/' . $row['image'] . '" alt="' . $row['name'] . '" class="tan" style="width: 100% , height: 30%;">';
                     echo '<div class="card-body">';
                     echo '<h5 class="card-title">' . $row['name'] . '</h5>';
-                    echo '<p class="card-text">' . (strlen($row['description']) > 20 ? substr($row['description'], 0, 20) . '...' : $row['description']) . '</p>'; 
+                    echo '<p class="card-text">' . (strlen($row['description']) > 20 ? substr($row['description'], 0, 20) . '...' : $row['description']) . '</p>';
                     echo '<a href="product_detail.php?id=' . $row['id'] . '">Chi tiết</a>';
                     echo '<p class="card-text">Giá: ' . number_format($row['price'], 0, ',', '.') . ' VNĐ</p>';
                     // Form để thêm vào danh sách yêu thích
@@ -271,6 +343,7 @@ $result = $conn->query($sql);
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <br>
 </body>
 
 </html>
@@ -304,6 +377,29 @@ $result = $conn->query($sql);
 </head>
 
 <body>
+    <div id="banner">
+        <div class="box-left">
+            <h2>
+                <span>THỨC ĂN</span>
+                <br>
+                <span>THƯỢNG HẠNG</span>
+            </h2>
+            <p>Chuyên cung cấp các món ăn đảm bảo dinh dưỡng
+                hợp vệ sinh đến người dùng,phục vụ người dùng 1 cái
+                hoàn hảo nhất</p>
+            <button>Mua ngay</button>
+        </div>
+        <div class="box-right">
+            <img src="images/img_1.png" alt="sh">
+            <img src="images/img_2.png" alt="sh">
+            <img src="images/img_3.png" alt="sh">
+        </div>
+        <div class="to-bottom">
+            <a href="">
+                <img src="anh/images (1).jpg" alt="sh">
+            </a>
+        </div>
+    </div>
     <div class="container mt-5">
         <h1 class="mb-4">Danh Sách Món Hấp</h1>
         <div class="row">
@@ -315,7 +411,7 @@ $result = $conn->query($sql);
                     echo '<img src="images/' . $row['image'] . '" alt="' . $row['name'] . '" class="tan" style="width: 100% , height: 30%;">';
                     echo '<div class="card-body">';
                     echo '<h5 class="card-title">' . $row['name'] . '</h5>';
-                    echo '<p class="card-text">' . (strlen($row['description']) > 20 ? substr($row['description'], 0, 20) . '...' : $row['description']) . '</p>'; 
+                    echo '<p class="card-text">' . (strlen($row['description']) > 20 ? substr($row['description'], 0, 20) . '...' : $row['description']) . '</p>';
                     echo '<a href="product_detail.php?id=' . $row['id'] . '">Chi tiết</a>';
                     echo '<p class="card-text">Giá: ' . number_format($row['price'], 0, ',', '.') . ' VNĐ</p>';
                     // Form để thêm vào danh sách yêu thích
@@ -344,6 +440,7 @@ $result = $conn->query($sql);
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <br>
 </body>
 
 </html>
@@ -377,6 +474,29 @@ $result = $conn->query($sql);
 </head>
 
 <body>
+    <div id="banner">
+        <div class="box-left">
+            <h2>
+                <span>THỨC ĂN</span>
+                <br>
+                <span>THƯỢNG HẠNG</span>
+            </h2>
+            <p>Chuyên cung cấp các món ăn đảm bảo dinh dưỡng
+                hợp vệ sinh đến người dùng,phục vụ người dùng 1 cái
+                hoàn hảo nhất</p>
+            <button>Mua ngay</button>
+        </div>
+        <div class="box-right">
+            <img src="images/img_1.png" alt="sh">
+            <img src="images/img_2.png" alt="sh">
+            <img src="images/img_3.png" alt="sh">
+        </div>
+        <div class="to-bottom">
+            <a href="">
+                <img src="anh/images (2).jpg" alt="sh">
+            </a>
+        </div>
+    </div>
     <div class="container mt-5">
         <h1 class="mb-4">Danh Sách Món Xào</h1>
         <div class="row">
@@ -388,7 +508,7 @@ $result = $conn->query($sql);
                     echo '<img src="images/' . $row['image'] . '" alt="' . $row['name'] . '" class="tan" style="width: 100% , height: 30%;">';
                     echo '<div class="card-body">';
                     echo '<h5 class="card-title">' . $row['name'] . '</h5>';
-                    echo '<p class="card-text">' . (strlen($row['description']) > 20 ? substr($row['description'], 0, 20) . '...' : $row['description']) . '</p>'; 
+                    echo '<p class="card-text">' . (strlen($row['description']) > 20 ? substr($row['description'], 0, 20) . '...' : $row['description']) . '</p>';
                     echo '<a href="product_detail.php?id=' . $row['id'] . '">Chi tiết</a>';
                     echo '<p class="card-text">Giá: ' . number_format($row['price'], 0, ',', '.') . ' VNĐ</p>';
                     // Form để thêm vào danh sách yêu thích
@@ -416,7 +536,54 @@ $result = $conn->query($sql);
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <br>
 
 </body>
 
 </html>
+
+</html>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <?php
+    include 'binhluannhai.php'
+    ?>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <title>User Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/forder.css">
+</head>
+
+<body>
+
+    <?php
+
+    include 'forder.php';
+    ?>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+

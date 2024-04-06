@@ -30,3 +30,6 @@
     left: 0; /* Hiển thị ở bên trái */
     width: 100%;
 }
+.nav-list li a img {
+    height: 40px;
+}

@@ -15,6 +15,7 @@
     <did class="head">
         <nav class="navbar">
             <ul class="nav-list">
+                <li><a href="user_page.php" class="logo"><img src="images/Group 7.png" alt="Logo"></a></li>
                 <li><a href="user_page.php">Trang Chủ</a></li>
                 <li><a href="monnuong.php">Món Nướng</a></li>
                 <li><a href="monchien.php">Món Chiên</a></li>
@@ -22,6 +23,7 @@
                 <li><a href="monxao.php">Món Xào</a></li>
                 <li><a href="#mon-xao">Đơn hàng</a></li>
                 <li><a href="thongtinkh.php">Thông Tin Tài Khoản</a></li>
+                <li><a href="logout.php">Đăng Xuất</a></li>
             </ul>
         </nav>
     </did>
@@ -126,4 +128,24 @@
 
 </body>
 
+</html>
+<!DOCTYPE html>
+<html lang="">
+<head>
+<title>User Page</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/forder.css">
+</head>
+<body>
+
+<?php
+
+include 'forder.php';
+?>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
