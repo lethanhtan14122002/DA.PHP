@@ -67,12 +67,68 @@
             </a>
         </div>
     </div>
+
+    <div class="nuong">
+        <?php
+        session_start(); // Bắt đầu session
+
+        // Kiểm tra nếu chưa đăng nhập (chưa lưu user_id vào session) thì chuyển hướng đến trang đăng nhập
+        if (!isset($_SESSION['user_id'])) {
+            header("Location: login_form.php");
+            exit();
+        }
+
+        include 'config.php'; // Đảm bảo rằng file config.php đã kết nối đến cơ sở dữ liệu
+
+        $userId = $_SESSION['user_id'];
+
+        // Câu truy vấn SQL để đếm số lượng mỗi loại món ăn
+        $sql = "
+SELECT
+    (SELECT COUNT(*) FROM menu_items WHERE deleted = 0 AND description LIKE '%nướng%') AS SoMonNuong,
+    (SELECT COUNT(*) FROM menu_items WHERE deleted = 0 AND description LIKE '%chiên%') AS SoMonChien,
+    (SELECT COUNT(*) FROM menu_items WHERE deleted = 0 AND description LIKE '%xào%') AS SoMonXao,
+    (SELECT COUNT(*) FROM menu_items WHERE deleted = 0 AND description LIKE '%hấp%') AS SoMonHap
+";
+
+        $result = $conn->query($sql);
+
+        if ($result) {
+            $totals = $result->fetch_assoc();
+            echo '<div class="sl1">Số món nướng: ' . $totals['SoMonNuong'] . '</div>';
+            echo '<div class="sl2">Số món chiên: ' . $totals['SoMonChien'] . '</div>';
+            echo '<div class="sl3">Số món xào: ' . $totals['SoMonXao'] . '</div>';
+            echo '<div class="sl4">Số món hấp: ' . $totals['SoMonHap'] . '</div>';
+        } else {
+            echo "0 kết quả";
+        }
+
+        $conn->close();
+        ?>
+    </div>
+    <div class="nuong2">
+        <a href="http://localhost:8080/login%20system/login%20system/monnuong.php">
+            <img src="images/banner.png">
+        </a>
+
+        <a href="http://localhost:8080/login%20system/login%20system/monchien.php">
+            <img src="images/banner.png">
+        </a>
+
+        <a href="http://localhost:8080/login%20system/login%20system/monxao.php">
+            <img src="images/banner.png">
+        </a>
+
+        <a href="http://localhost:8080/login%20system/login%20system/monhap.php">
+            <img src="images/banner.png">
+        </a>
+    </div>
+
     <div class="container mt-5">
         <h1 class="mb-4">Danh Sách Món Ăn</h1>
         <div class="row">
             <?php
-            session_start(); // Bắt đầu session
-            // Kiểm tra nếu chưa đăng nhập (chưa lưu user_id vào session) thì chuyển hướng đến trang đăng nhập
+
             if (!isset($_SESSION['user_id'])) {
                 header("Location: login_form.php");
                 exit();
@@ -82,7 +138,8 @@
 
             $userId = $_SESSION['user_id'];
 
-            $sql = "SELECT * FROM menu_items WHERE deleted = 0";
+            $sql = "SELECT * FROM menu_items WHERE deleted = 0 AND description NOT LIKE '%nướng%' AND description NOT LIKE '%xào%' AND description NOT LIKE '%chiên%' AND description NOT LIKE '%hấp%'";
+
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -167,7 +224,7 @@ if (!isset($_SESSION['user_id'])) {
 $userId = $_SESSION['user_id'];
 
 // Thay đổi câu truy vấn SQL để chỉ lấy những món có chứa từ khóa "nướng" trong tên
-$sql = "SELECT * FROM menu_items WHERE deleted = 0 AND name LIKE '%nướng%'";
+$sql = "SELECT * FROM menu_items WHERE deleted = 0 AND name LIKE '%nướng%' LIMIT 3";
 $result = $conn->query($sql);
 
 ?>
@@ -240,6 +297,10 @@ $result = $conn->query($sql);
                 echo "<div class='col'><p>Không có món ăn nào.</p></div>";
             }
             ?>
+            <div class="text-center mt-3">
+                <button class="btn btn-primary" onclick="window.location.href = 'monnuong.php';">Xem thêm</button>
+            </div>
+            <br>
         </div>
     </div>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -265,7 +326,7 @@ if (!isset($_SESSION['user_id'])) {
 $userId = $_SESSION['user_id'];
 
 // Thay đổi câu truy vấn SQL để chỉ lấy những món có chứa từ khóa "nướng" trong tên
-$sql = "SELECT * FROM menu_items WHERE deleted = 0 AND name LIKE '%chiên%'";
+$sql = "SELECT * FROM menu_items WHERE deleted = 0 AND name LIKE '%chiên%' LIMIT 3";
 $result = $conn->query($sql);
 
 ?>
@@ -337,6 +398,9 @@ $result = $conn->query($sql);
                 echo "<div class='col'><p>Không có món ăn nào.</p></div>";
             }
             ?>
+            <div class="text-center mt-3">
+                <button class="btn btn-primary" onclick="window.location.href = 'monchien.php';">Xem thêm</button>
+            </div>
         </div>
     </div>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -362,7 +426,7 @@ if (!isset($_SESSION['user_id'])) {
 $userId = $_SESSION['user_id'];
 
 // Thay đổi câu truy vấn SQL để chỉ lấy những món có chứa từ khóa "nướng" trong tên
-$sql = "SELECT * FROM menu_items WHERE deleted = 0 AND name LIKE '%Hấp%'";
+$sql = "SELECT * FROM menu_items WHERE deleted = 0 AND name LIKE '%Hấp%' LIMIT 3";
 $result = $conn->query($sql);
 
 ?>
@@ -434,6 +498,9 @@ $result = $conn->query($sql);
                 echo "<div class='col'><p>Không có món ăn nào.</p></div>";
             }
             ?>
+            <div class="text-center mt-3">
+                <button class="btn btn-primary" onclick="window.location.href = 'monhap.php';">Xem thêm</button>
+            </div>
         </div>
     </div>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -459,7 +526,7 @@ if (!isset($_SESSION['user_id'])) {
 $userId = $_SESSION['user_id'];
 
 // Thay đổi câu truy vấn SQL để chỉ lấy những món có chứa từ khóa "nướng" trong tên
-$sql = "SELECT * FROM menu_items WHERE deleted = 0 AND name LIKE '%xào%'";
+$sql = "SELECT * FROM menu_items WHERE deleted = 0 AND name LIKE '%xào%' LIMIT 3";
 $result = $conn->query($sql);
 
 ?>
@@ -531,6 +598,9 @@ $result = $conn->query($sql);
                 echo "<div class='col'><p>Không có món ăn nào.</p></div>";
             }
             ?>
+            <div class="text-center mt-3">
+                <button class="btn btn-primary" onclick="window.location.href = 'monxao.php';">Xem thêm</button>
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -543,6 +613,7 @@ $result = $conn->query($sql);
 </html>
 
 </html>
+
 </html>
 <!DOCTYPE html>
 <html lang="en">
@@ -586,4 +657,3 @@ $result = $conn->query($sql);
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-

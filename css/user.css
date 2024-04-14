@@ -6,7 +6,7 @@
 .total-favorites {
     position: fixed;
     top: 80px;
-    right: 90px;
+    right: 1280px;
     background-color: #007bff;
     color: #fff;
     padding: 3px 10px;
@@ -19,7 +19,7 @@
 }
 
 .logo1 {
-    margin-right: 80px;
+    margin-right: 1280px;
     margin-top: -5px;
     position: fixed;
     padding: 5px 10px;
@@ -115,16 +115,19 @@ body {
 }
 
 #banner  .box-left h2 {
+    margin-left: 80px;
     font-size:48px;
     margin-top:75px;
     color:#fff;
 }
 
 #banner .box-left p {
+    margin-left: 80px;
     color:#D0D0D0;
 }
 
 #banner .box-left button {
+    margin-left: 80px;
     width: 191px;
     height: 40px;
     margin-top:41px;
@@ -189,6 +192,35 @@ body {
 .to-bottom img{
     margin-top: 50px;
     padding: 5px 5px;
-    width: 1350px;;
+    width: 1150px;;
     height: 550px;
+}
+.row img{
+    border-radius: 20px 20px 0px 0px;
+}
+.nuong{
+    display:flex;
+    margin-top: 40px;
+}
+ .sl1{
+    
+    margin: 10px 10px 10px 50px;
+}
+.sl2{
+    margin: 10px 10px 10px 190px;
+}
+.sl3{
+    margin: 10px 10px 10px 210px ;
+}
+.sl4{
+    margin: 10px 10px 10px 210px;
+}
+.nuong2{
+    
+    display: flex;
+}
+.nuong2 img{
+    margin-left: 50px;
+    width: 80%;
+    height: 100px;
 }

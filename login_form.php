@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
       $_SESSION['user_name'] = $row['name']; // Đặt giá trị name vào session
       if ($row['user_type'] == 'admin') {
          $_SESSION['admin_name'] = $row['name'];
-         header('location: admin_show.php');
+         header('location: admin.php');
          exit();
       } elseif ($row['user_type'] == 'user') {
          header('location: user_page.php');
