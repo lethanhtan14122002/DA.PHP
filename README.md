@@ -16,20 +16,19 @@
 
 ## Giới thiệu
 
-Nhóm Cherry bao gồm các thành viên đam mê phát triển phần mềm và cải tiến công nghệ. Chúng tôi hợp tác cùng nhau trong việc tạo ra các dự án độc đáo và sáng tạo để giải quyết các vấn đề thực tiễn thông qua công nghệ.
+Nhóm Cherry bao gồm 3 thành viên đam mê phát triển phần mềm và cải tiến công nghệ. Chúng tôi hợp tác cùng nhau trong việc tạo ra các dự án độc đáo và sáng tạo để giải quyết các vấn đề thực tiễn thông qua công nghệ.
 
 ## Các Dự Án
 
-(Tại đây bạn có thể liệt kê các dự án hoặc link đến các dự án đang phát triển trong kho lưu trữ của nhóm)
-
-- [Dự án 1](#)
-- [Dự án 2](#)
-- [Dự án 3](#)
+- [Dự án 1](https://github.com/lethanhtan14122002/DA.PHP)
+- [Dự án 2](https://github.com/lethanhtan14122002/DA.PHP/tree/tan)
+- [Dự án 3](https://github.com/lethanhtan14122002/DA.PHP/tree/tan2)
 
 ## Liên hệ
 
 Để biết thêm thông tin, xin vui lòng liên hệ với chúng tôi qua:
-- Email: info@cherryteam.com
+- Email: lethanhtan14122002@gmail.com
+- Số điện thoại :0364273884
 - GitHub: [CherryTeam](https://github.com/lethanhtan14122002/DA.PHP)
 
 ---
