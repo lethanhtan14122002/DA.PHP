@@ -17,6 +17,13 @@
 ## Giới thiệu
 
 Nhóm Cherry bao gồm 3 thành viên đam mê phát triển phần mềm và cải tiến công nghệ. Chúng tôi hợp tác cùng nhau trong việc tạo ra các dự án độc đáo và sáng tạo để giải quyết các vấn đề thực tiễn thông qua công nghệ.
+## Chức năng
+
+- Đăng ký
+- Đăng nhập
+- CRUD
+- Giỏ hàng
+- Yêu thích 
 
 ## Các Dự Án
 
