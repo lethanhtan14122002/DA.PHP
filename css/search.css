@@ -1,0 +1,22 @@
+#searchForm{
+    text-align: center;
+    margin-top: 5px;
+    
+}
+#searchForm img{
+    margin-left: 10px;
+    padding: 5px 5px;
+    width:40px;
+    height:40px;
+    background:#0cb0ff ;
+    border-radius:10px;
+}
+#searchForm img:hover{
+    background: #000dff;
+    
+}
+#searchForm input{
+    width: 400px;
+    height: 40px;
+    border-color:aqua;
+}

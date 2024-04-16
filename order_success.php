@@ -1,3 +1,23 @@
+<?php
+session_start();
+include 'config.php';
+
+// Kiểm tra xem người dùng đã đăng nhập chưa
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login_form.php");
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+
+// Cập nhật trạng thái is_deleted của giỏ hàng thành 1
+$update_sql = "UPDATE cart_items SET is_deleted = 1 WHERE user_id = $user_id";
+$conn->query($update_sql);
+
+// Đóng kết nối database
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,49 +27,7 @@
     <title>Đặt hàng thành công</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #007bff;
-        }
-
-        .success-message {
-            text-align: center;
-            font-size: 24px;
-            color: #28a745;
-            margin-bottom: 30px;
-        }
-
-        .btn-back {
-            display: block;
-            margin: 0 auto;
-            width: 200px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-back:hover {
-            background-color: #0056b3;
-        }
+        /* CSS styles here */
     </style>
 </head>
 
@@ -60,8 +38,9 @@
             <p>Cảm ơn bạn đã đặt hàng của chúng tôi!</p>
             <p>Đơn hàng của bạn đã được ghi nhận.</p>
         </div>
-        <a href="index.php" class="btn-back">Quay lại trang chủ</a>
+        <a href="user_page.php" class="btn-back">Quay lại trang chủ</a>
     </div>
 </body>
 
 </html>
+

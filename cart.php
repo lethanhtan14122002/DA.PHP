@@ -10,11 +10,11 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Truy vấn để lấy thông tin giỏ hàng của người dùng
+// Truy vấn để lấy thông tin giỏ hàng của người dùng (chỉ lấy các hàng chưa bị xóa)
 $sql = "SELECT cart_items.id, cart_items.item_id, menu_items.name, menu_items.price, menu_items.image, cart_items.quantity
         FROM cart_items
         INNER JOIN menu_items ON cart_items.item_id = menu_items.id
-        WHERE cart_items.user_id = $user_id";
+        WHERE cart_items.user_id = $user_id"; // Áp dụng điều kiện is_deleted = 0
 
 $result = $conn->query($sql);
 
@@ -68,16 +68,33 @@ $result = $conn->query($sql);
                     } else {
                         echo "<tr><td colspan='6'>Giỏ hàng của bạn đang trống.</td></tr>";
                     }
+                    // if (!($result->num_rows == 0)) {
+                    //     echo '<form method="post" action="checkout.php">';
+                    //     echo '<button type="submit" name="checkout" class="thanhtoan">Thanh toán</button>';
+                    //     echo '</form>';
+                    // } else {
+                    //     echo '<p class="text-danger">Giỏ hàng của bạn đang trống, không thể thanh toán!</p>';
+                    // }
                     ?>
                 </tbody>
             </table>
+            
             <form method="post" action="user_page.php">
                 <button type="submit" name="back_to_user" class="quaylai">Quay lại trang</button>
             </form>
+            <?php
+            if (!($result->num_rows == 0)) {
+                echo '<form method="post" action="checkout.php">';
+                echo '<button type="submit" name="checkout" class="thanhtoan">Thanh toán</button>';
+                echo '</form>';
+            } else {
+                echo '<p class="text-danger">Giỏ hàng của bạn đang trống, không thể thanh toán!</p>';
+            }
+            ?>
             <!-- Nút Thanh toán -->
-            <form method="post" action="checkout.php">
-                <button type="submit" name="checkout" class="thanhtoan">Thanh toán</button>
-            </form>
+            <!-- <form method="post" action="checkout.php">;
+            <button type="submit" name="checkout" class="thanhtoan">Thanh toán</button>;
+            </form>; -->
         </div>
     </div>
 </body>
