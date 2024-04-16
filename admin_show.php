@@ -54,6 +54,7 @@ $counter = 1;
                      <th>ID</th>
                      <th>Name</th>
                      <th>Price</th>
+                     <th>Description</th>
                      <th>Image</th>
                      <th>Action</th>
                   </tr>
@@ -64,6 +65,7 @@ $counter = 1;
                         <td><?php echo $counter++; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo number_format($row['price'], 0, ',', '.'); ?> VNĐ</td>
+                        <td><?php echo $row['description']; ?></td> <!-- Hiển thị mô tả -->
                         <td><img src="images/<?php echo $row['image']; ?>" alt="<?php echo $row['name']; ?>" width="100"></td>
                         <td>
                            <a href="delete_item.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
@@ -80,8 +82,3 @@ $counter = 1;
 </body>
 
 </html>
-
-<?php
-// Đóng kết nối
-$conn->close();
-?>

@@ -1,0 +1,35 @@
+/* CSS code */
+.navbar {
+    /* Chiều rộng 100% */
+    background-color: #333; /* Màu nền */
+    padding: 10px; /* Khoảng cách giữa nội dung và viền */
+    z-index: 1000; /* Độ sâu hiển thị (lớn hơn các phần tử khác) */
+}
+
+.nav-list {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-list li {
+    margin-right: 50px;
+}
+
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #f1c40f; /* Màu vàng khi hover */
+}
+.head{
+    
+    top: 0; /* Hiển thị ở đỉnh trên cùng */
+    left: 0; /* Hiển thị ở bên trái */
+    width: 100%;
+}
+.nav-list li a img {
+    height: 40px;
+}
