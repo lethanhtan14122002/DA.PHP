@@ -16,7 +16,7 @@
 
 ## Giới thiệu
 
-Nhóm Cherry bao gồm 3 thành viên đam mê phát triển phần mềm và cải tiến công nghệ. Chúng tôi hợp tác cùng nhau trong việc tạo ra các dự án độc đáo và sáng tạo để giải quyết các vấn đề thực tiễn thông qua công nghệ.
+Nhóm Cherry bao gồm 3 thành viên đam mê phát triển phần mềm và cải tiến công nghệ.
 ## Chức năng
 
 - Đăng ký
@@ -38,7 +38,7 @@ Nhóm Cherry bao gồm 3 thành viên đam mê phát triển phần mềm và c�
 - Số điện thoại :0364273884
 - GitHub: [CherryTeam](https://github.com/lethanhtan14122002/DA.PHP)
 
----
+
 
 **Cảm ơn bạn đã quan tâm đến các dự án của chúng tôi!**
 
