@@ -1,85 +1,71 @@
 <?php
 session_start();
-include 'config.php';
+require 'config.php';
 
-if (isset($_POST['submit_order'])) {
-    // Lấy thông tin từ form
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $address = $_POST['address'];
-    $note = $_POST['note'];
-    $user_id = $_SESSION['user_id'];
+// Kiểm tra xem người dùng đã đăng nhập chưa
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login_form.php");
+    exit();
+}
 
-    // Tính toán tổng tiền từ các sản phẩm trong giỏ hàng
-    $totalAmount = 0; // Khởi tạo biến tổng tiền
-    $cart_sql = "SELECT item_id, quantity FROM cart_items WHERE user_id = '$user_id'";
-    $cart_result = $conn->query($cart_sql);
+// Lấy thông tin người dùng từ session
+$user_id = $_SESSION['user_id'];
 
-    if ($cart_result->num_rows > 0) {
-        while ($row = $cart_result->fetch_assoc()) {
-            $item_id = $row['item_id'];
-            $quantity = $row['quantity'];
+// Lấy thông tin từ form gửi qua POST
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+$phone = mysqli_real_escape_string($conn, $_POST['phone']);
+$address = mysqli_real_escape_string($conn, $_POST['address']);
+$note = mysqli_real_escape_string($conn, $_POST['note']);
 
-            // Lấy giá của sản phẩm từ bảng menu_items để tính thành tiền
-            $price_sql = "SELECT price FROM menu_items WHERE id = '$item_id'";
-            $price_result = $conn->query($price_sql);
-            if ($price_result->num_rows > 0) {
-                $price_row = $price_result->fetch_assoc();
-                $price = $price_row['price'];
+// Truy vấn để lấy thông tin giỏ hàng của người dùng
+$sql = "SELECT cart_items.item_id, menu_items.name, menu_items.price, menu_items.image, cart_items.quantity
+        FROM cart_items
+        INNER JOIN menu_items ON cart_items.item_id = menu_items.id
+        WHERE cart_items.user_id = $user_id";
 
-                // Tính thành tiền cho từng sản phẩm
-                $subtotal = $price * $quantity;
-                $totalAmount += $subtotal; // Cộng vào tổng tiền
-            }
-        }
+$result = $conn->query($sql);
 
-        // Thêm thông tin đơn hàng vào bảng orders
-        $insert_order_sql = "INSERT INTO orders (user_id, order_date, email, phone, address, note, total_amount)
-                            VALUES ('$user_id', NOW(), '$email', '$phone', '$address', '$note', '$totalAmount')";
-        $conn->query($insert_order_sql);
+// Khởi tạo biến tổng số lượng hàng và tổng số tiền
+$totalQuantity = 0;
+$totalAmount = 0;
 
-        // Lấy order_id của đơn hàng vừa thêm vào
-        $order_id = $conn->insert_id;
+// Mảng chứa thông tin các sản phẩm trong giỏ hàng
+$items = array();
 
-        // Reset biến tổng tiền
-        $totalAmount = 0;
+// Kiểm tra xem có dữ liệu trong kết quả truy vấn hay không
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $subtotal = $row['price'] * $row['quantity'];
+        $totalQuantity += $row['quantity'];
+        $totalAmount += $subtotal;
 
-        // Lấy thông tin chi tiết đơn hàng từ giỏ hàng và thêm vào bảng order_details
-        $cart_result = $conn->query($cart_sql);
-        if ($cart_result->num_rows > 0) {
-            while ($row = $cart_result->fetch_assoc()) {
-                $item_id = $row['item_id'];
-                $quantity = $row['quantity'];
-
-                // Lấy giá của sản phẩm từ bảng menu_items để tính thành tiền
-                $price_sql = "SELECT price FROM menu_items WHERE id = '$item_id'";
-                $price_result = $conn->query($price_sql);
-                if ($price_result->num_rows > 0) {
-                    $price_row = $price_result->fetch_assoc();
-                    $price = $price_row['price'];
-
-                    // Tính thành tiền cho từng sản phẩm
-                    $subtotal = $price * $quantity;
-                    $totalAmount += $subtotal; // Cộng vào tổng tiền
-
-                    // Thêm thông tin chi tiết đơn hàng vào bảng order_details
-                    $insert_detail_sql = "INSERT INTO order_details (order_id, item_id, quantity, price, subtotal)
-                                          VALUES ('$order_id', '$item_id', '$quantity', '$price', '$subtotal')";
-                    $conn->query($insert_detail_sql);
-                }
-            }
-
-            // Xóa giỏ hàng sau khi đặt hàng thành công
-            $delete_cart_sql = "DELETE FROM cart_items WHERE user_id = '$user_id'";
-            $conn->query($delete_cart_sql);
-
-            echo "Đặt hàng thành công!";
-        } else {
-            echo "Không có sản phẩm trong giỏ hàng!";
-        }
-    } else {
-        echo "Không có sản phẩm trong giỏ hàng!";
+        // Thêm thông tin sản phẩm vào mảng
+        $item = array(
+            'name' => $row['name'],
+            'price' => $row['price'],
+            'quantity' => $row['quantity']
+        );
+        $items[] = $item;
     }
+} else {
+    echo "Giỏ hàng của bạn đang trống.";
+    exit();
+}
+
+// Lưu thông tin đơn hàng vào cơ sở dữ liệu
+$insertOrderSql = "INSERT INTO orders (user_id, email, phone, address, note, total_quantity, total_amount) 
+                    VALUES ('$user_id', '$email', '$phone', '$address', '$note', '$totalQuantity', '$totalAmount')";
+if ($conn->query($insertOrderSql) === TRUE) {
+    // Xóa giỏ hàng sau khi đặt hàng thành công
+    $deleteCartItemsSql = "DELETE FROM cart_items WHERE user_id = $user_id";
+    if ($conn->query($deleteCartItemsSql) === TRUE) {
+        echo "Đơn hàng của bạn đã được đặt thành công.";
+        header('location: order_success.php');
+    } else {
+        echo "Có lỗi xảy ra khi xóa giỏ hàng: " . $conn->error;
+    }
+} else {
+    echo "Có lỗi xảy ra khi lưu đơn hàng vào cơ sở dữ liệu: " . $conn->error;
 }
 
 $conn->close();

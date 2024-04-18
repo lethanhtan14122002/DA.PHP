@@ -21,7 +21,7 @@
                 <li><a href="monchien.php">Món Chiên</a></li>
                 <li><a href="monhap.php">Món Hấp</a></li>
                 <li><a href="monxao.php">Món Xào</a></li>
-                <li><a href="#mon-xao">Đơn hàng</a></li>
+                <li><a href="orders.php">Đơn hàng</a></li>
                 <li><a href="thongtinkh.php">Thông Tin Tài Khoản</a></li>
                 <li><a href="logout.php">Đăng Xuất</a></li>
             </ul>

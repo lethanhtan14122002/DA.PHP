@@ -1,23 +1,3 @@
-<?php
-session_start();
-include 'config.php';
-
-// Kiểm tra xem người dùng đã đăng nhập chưa
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login_form.php");
-    exit();
-}
-
-$user_id = $_SESSION['user_id'];
-
-// Cập nhật trạng thái is_deleted của giỏ hàng thành 1
-$update_sql = "UPDATE cart_items SET is_deleted = 1 WHERE user_id = $user_id";
-$conn->query($update_sql);
-
-// Đóng kết nối database
-$conn->close();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,12 +8,43 @@ $conn->close();
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* CSS styles here */
+        body {
+            background-color: #f8f9fa;
+            background-image: url('https://hoacuatui.shop/wp-content/uploads/2023/04/hoa-bi-ngan-xanh.jpg');
+        }
+
+        .container {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .success-message {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-back {
+            margin-top: 20px;
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Đặt hàng thành công</h1>
+        <h1 style="color: white;">Đặt hàng thành công</h1>
         <div class="success-message">
             <p>Cảm ơn bạn đã đặt hàng của chúng tôi!</p>
             <p>Đơn hàng của bạn đã được ghi nhận.</p>
@@ -43,4 +54,3 @@ $conn->close();
 </body>
 
 </html>
-
