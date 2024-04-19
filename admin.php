@@ -118,7 +118,7 @@
                             <a class="nav-link" href="admin.php">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="QLdonhang.php">Orders</a>
+                            <a class="nav-link" href="oderadmin.php">Orders</a>
                         </li>
                     </ul>
                 </div>
