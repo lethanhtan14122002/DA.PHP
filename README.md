@@ -41,7 +41,7 @@ Kỹ thuật sử dụng: Flutter, Local Notification, Shared Preferences, Custo
 
 - Số điện thoại :0364273884
 
-- GitHub: [CherryTeam](https://github.com/lethanhtan14122002/DA.NNPTUDM)
+- GitHub: [Cherry](https://github.com/lethanhtan14122002/JavaScrip)
 
 ---
 
