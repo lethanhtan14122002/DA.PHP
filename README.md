@@ -1,42 +1,45 @@
 <div align="center">
 
-# Nhóm Cherry :cherries:
+#Cherry :cherries:
 
 ### Chào mừng đến với kho lưu trữ của chúng tôi!
 
 </div>
 
-## Thành viên trong nhóm
-
 | Họ và Tên          | Mã Sinh Viên |
 | ------------------ | ------------ |
 | Lê Thanh Tân       | 2011068492   |
-| Nguyễn Văn Trưng   | 2011068559   |
-| Nguyễn Nhựt Trường | 2011068561   |
+
 
 ## Giới thiệu
 
-Nhóm Cherry bao gồm 3 thành viên đam mê phát triển phần mềm và cải tiến công nghệ.
-## Chức năng
 
-- Đăng ký
-- Đăng nhập
-- CRUD
-- Giỏ hàng
-- Yêu thích 
+Tôi là sinh viên mới tốt nghiệp chuyên ngành Công nghệ Thông tin, hiện đang tập trung vào phát triển ứng dụng di động bằng Flutter. Tôi đã hoàn thành nhiều bài tập thực tế và dự án cá nhân sử dụng Flutter, có thể làm việc với Firebase, API và thiết kế giao diện theo chuẩn Material Design.
 
-## Các Dự Án
+Dù chưa có nhiều kinh nghiệm thực chiến, tôi có tinh thần học hỏi cao, có khả năng tự nghiên cứu và luôn cố gắng hoàn thiện kỹ năng để sẵn sàng đóng góp cho các dự án thực tế.
 
-- [Dự án 1](https://github.com/lethanhtan14122002/DA.PHP)
-- [Dự án 2](https://github.com/lethanhtan14122002/DA.PHP/tree/tan)
-- [Dự án 3](https://github.com/lethanhtan14122002/DA.PHP/tree/tan2)
+## Các dự án 
+
+* Mộng Thức – Ứng dụng báo thức kết hợp video, mang đến trải nghiệm thức dậy nhẹ nhàng và tích cực cho người dùng. Đã phát hành trên CH Play, xây dựng hoàn toàn bằng Flutter :
+Kỹ thuật sử dụng: Flutter, Local Notification, Shared Preferences, Custom UI .
+
+* Còn 1 ứng dụng đa nền tảng đang trong giai đoạn hoàn thiện, tập trung vào trải nghiệm người dùng và hiệu năng. Dự kiến sớm ra mắt trên CH Play .
+
+## Các dự án khác như java , php.
+
+- Dự án 1 : [Java](https://github.com/lethanhtan14122002/Java/tree/master)
+
+- Dự án 2 : [PHP](https://github.com/lethanhtan14122002/DA.PHP)
 
 ## Liên hệ
 
 Để biết thêm thông tin, xin vui lòng liên hệ với chúng tôi qua:
+
 - Email: lethanhtan14122002@gmail.com
+
 - Số điện thoại :0364273884
-- GitHub: [CherryTeam](https://github.com/lethanhtan14122002/DA.PHP)
+
+- GitHub: [CherryTeam](https://github.com/lethanhtan14122002/DA.NNPTUDM)
 
 ---
 
